@@ -1,0 +1,12 @@
+﻿@model Solution.Models.Players.PlayersListViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>All Members</h2>
+
+<div id="divCategoryList">          
+    @Html.Partial("_PlayersList", Model.Players)
+</div>
