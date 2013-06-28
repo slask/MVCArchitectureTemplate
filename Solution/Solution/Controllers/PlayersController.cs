@@ -1,10 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using Application;
+using Application.Services;
+using AutoMapper;
+using Domain.Entities;
 using Solution.Controllers;
+using Solution.Convertors;
+using Solution.Models.Players;
 
 [assembly: WebActivator.PreApplicationStartMethod(typeof(PlayersController), "AutoMapperStart")]
 namespace Solution.Controllers
@@ -19,22 +20,22 @@ namespace Solution.Controllers
             //Open-Closed Principle
             //Ease of maintenance
             
-            //AutoMapper.Mapper.CreateMap<>();
+            Mapper.CreateMap<ScrabblePlayer, PlayerViewModel>();
+            Mapper.AssertConfigurationIsValid();
         }
 
         public PlayersController(IPlayersService playersService)
         {
             _playersService = playersService;
-            //TODO: setup Di with autofac
         }
-
-        //
-        // GET: /Players/
 
         public ActionResult Index()
         {
-
-            return View();
+            var viewModel = new PlayersListViewModel
+                {
+                    Players = _playersService.GetAllPlayers().ToPlayerViewModelList()
+                };
+            return View(viewModel);
         }
 
         public ActionResult Edit(Guid id)

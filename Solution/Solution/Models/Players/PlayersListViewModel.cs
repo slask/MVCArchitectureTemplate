@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 
 namespace Solution.Models.Players
 {
     public class PlayersListViewModel
     {
-        public List<PlayerViewModel> Players { get; set; }
+        public IEnumerable<PlayerViewModel> Players { get; set; }
     }
 }
