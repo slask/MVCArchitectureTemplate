@@ -1,0 +1,25 @@
+﻿@model Solution.Models.Players.PlayerEditModel
+
+@{
+    ViewBag.Title = "Edit";
+}  
+<h2>Edit</h2>         
+@using (Html.BeginForm("Save", "Players"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Category</legend>     
+
+        @Html.HiddenFor(model => model.Id)
+        @Html.Partial("_CreateOrEdit", Model)
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using Application.DTO;
 using Domain.Entities;
 
 namespace Application.Services
@@ -7,5 +9,7 @@ namespace Application.Services
     {
         //TODO: maybe add method to get paged subset of players etc.
         IEnumerable<ScrabblePlayer> GetAllPlayers();
+        void SavePlayer(PlayerDto dto);
+        ScrabblePlayer GetPlayer(Guid id);
     }
 }

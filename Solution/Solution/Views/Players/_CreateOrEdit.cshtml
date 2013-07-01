@@ -1,0 +1,41 @@
+﻿@model Solution.Models.Players.PlayerEditModel
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Name)
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.Name)
+    @Html.ValidationMessageFor(model => model.Name)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Email)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Email)
+    @Html.ValidationMessageFor(model => model.Email)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.ContactPhoneNumber)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.ContactPhoneNumber)
+    @Html.ValidationMessageFor(model => model.ContactPhoneNumber)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.JoinDate)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.JoinDate)
+    @Html.ValidationMessageFor(model => model.JoinDate)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.StreetAddress)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.StreetAddress)
+    @Html.ValidationMessageFor(model => model.StreetAddress)
+</div>

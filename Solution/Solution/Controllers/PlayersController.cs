@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web.Mvc;
+using Application.DTO;
 using Application.Services;
 using AutoMapper;
 using Domain.Entities;
@@ -21,6 +22,8 @@ namespace Solution.Controllers
             //Ease of maintenance
             
             Mapper.CreateMap<ScrabblePlayer, PlayerViewModel>();
+            Mapper.CreateMap<ScrabblePlayer, PlayerEditModel>();
+            Mapper.CreateMap<PlayerEditModel, PlayerDto>();
             Mapper.AssertConfigurationIsValid();
         }
 
@@ -40,7 +43,9 @@ namespace Solution.Controllers
 
         public ActionResult Edit(Guid id)
         {
-            throw new NotImplementedException();
+            ScrabblePlayer player = _playersService.GetPlayer(id);
+            var playerModel = player.ToPlayerEditModel();
+            return View(playerModel);
         }
 
         public ActionResult Delete(Guid id)
@@ -50,7 +55,32 @@ namespace Solution.Controllers
 
         public ActionResult Create()
         {
-            throw new NotImplementedException();
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Save(PlayerEditModel form)
+        {
+            if (ModelState.IsValid)
+            {
+                var dto = Mapper.Map<PlayerEditModel, PlayerDto>(form);
+                _playersService.SavePlayer(dto);
+                //IEnumerable<ValidationResult> errors = commandBus.Validate(command);
+                //ModelState.AddModelErrors(errors);
+                //if (ModelState.IsValid)
+                //{
+                //    var result = commandBus.Submit(command);
+                //    if (result.Success)
+                //          return RedirectToAction("Index");
+                //}
+            }
+
+            //if fail
+            if (form.Id == Guid.Empty)
+                return View("Create", form);
+
+            return View("Edit", form);
         }
     }
 }

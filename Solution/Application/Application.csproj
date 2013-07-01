@@ -39,6 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\PlayerDto.cs" />
+    <Compile Include="IOperationResult.cs" />
+    <Compile Include="OperationResult.cs" />
     <Compile Include="Services\IPlayersService.cs" />
     <Compile Include="Services\PlayersService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -52,9 +55,7 @@
       <Name>Domain %28Domain\Domain%29</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DTO\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

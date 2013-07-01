@@ -1,8 +1,9 @@
 ﻿using System;
+using Domain.Core;
 
 namespace Domain.Entities
 {
-    public class Game
+    public class Game: DomainObject
     {
         public Guid Id { get; set; }
         public DateTime? PlayDate { get; set; }

@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using Domain.Core;
 
 namespace Domain.Entities
 {
-    public class ScrabblePlayer
+    public class ScrabblePlayer: DomainObject
     {
-        public Guid Id { get; set; }
         public string Name { get; set; }
         public DateTime? JoinDate { get; set; }
         public string ContactPhoneNumber { get; set; }

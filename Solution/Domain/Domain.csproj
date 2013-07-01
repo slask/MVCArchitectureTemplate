@@ -39,13 +39,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\DomainObject.cs" />
     <Compile Include="Entities\Game.cs" />
     <Compile Include="Entities\ScrabblePlayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Core\Validation\IValidationHandler.cs" />
+    <Compile Include="Core\Validation\ValidationResult.cs" />
+    <Compile Include="Validators\CanSavePlayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Repositories\" />
-    <Folder Include="Services\Validation\" />
+    <Folder Include="Services\" />
     <Folder Include="ValueObjects\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
