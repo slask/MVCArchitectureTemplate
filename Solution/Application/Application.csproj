@@ -45,6 +45,7 @@
     <Compile Include="Services\IPlayersService.cs" />
     <Compile Include="Services\PlayersService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validators\CanSavePlayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

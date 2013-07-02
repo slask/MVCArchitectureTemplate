@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using Domain.Core.Validation;
 
 namespace Application
 {
     public interface IOperationResult
     {
         bool Success { get; }
+        IEnumerable<Notification> ValidationFaults { get; }
     }
 }

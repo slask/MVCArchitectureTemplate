@@ -201,6 +201,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PlayersController.cs" />
     <Compile Include="Convertors\ViewModelConverters.cs" />
+    <Compile Include="Extensions\ControllerExtensions.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -329,6 +330,7 @@
     <Content Include="Views\Players\Create.cshtml" />
     <Content Include="Views\Players\_CreateOrEdit.cshtml" />
     <Content Include="Views\Players\Edit.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -344,6 +346,10 @@
     <ProjectReference Include="..\Domain\Domain.csproj">
       <Project>{FAADBFC6-D51E-49F6-A849-FF9077D5035E}</Project>
       <Name>Domain %28Domain\Domain%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utilities\Utilities.csproj">
+      <Project>{c1c98a20-713a-4a29-b179-627794fc61d0}</Project>
+      <Name>Utilities</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

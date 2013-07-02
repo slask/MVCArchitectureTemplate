@@ -1,0 +1,30 @@
+﻿@model DateTime?
+
+@if (Model.HasValue)
+{
+    @Html.TextBox("", String.Format("{0:yyyy-MM-dd}", Model.Value))
+}
+else
+{
+    @Html.TextBox("", String.Format("{0:yyyy-MM-dd}", DateTime.Now))
+}
+
+@{
+    string name = ViewData.TemplateInfo.HtmlFieldPrefix;
+    string id = name.Replace(".", "_");
+}
+<script type="text/javascript">
+    $(function () {
+        $("#@id").datepicker
+        ({
+            dateFormat: 'mm/dd/yy',
+            showStatus: true,
+            highlightWeek: true,
+            numberOfMonths: 1,
+            showAnim: "scale",
+            showOptions: {
+                origin: ["top", "right"]
+            }
+        });
+    });
+</script>

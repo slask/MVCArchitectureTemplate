@@ -2,8 +2,8 @@
 
 namespace Domain.Core.Validation
 {
-    public interface IValidationHandler<in T> where T : DomainObject
+    public interface IValidationHandler<in T>
     {
-        IEnumerable<ValidationResult>  Validate(T command);
+        IEnumerable<Notification>  Validate(T subject);
     }
 }

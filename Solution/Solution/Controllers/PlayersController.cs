@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using Application.DTO;
 using Application.Services;
@@ -6,6 +7,7 @@ using AutoMapper;
 using Domain.Entities;
 using Solution.Controllers;
 using Solution.Convertors;
+using Solution.Extensions;
 using Solution.Models.Players;
 
 [assembly: WebActivator.PreApplicationStartMethod(typeof(PlayersController), "AutoMapperStart")]
@@ -17,10 +19,6 @@ namespace Solution.Controllers
 
         public static void AutoMapperStart()
         {
-            //Single Responsibility Principle
-            //Open-Closed Principle
-            //Ease of maintenance
-            
             Mapper.CreateMap<ScrabblePlayer, PlayerViewModel>();
             Mapper.CreateMap<ScrabblePlayer, PlayerEditModel>();
             Mapper.CreateMap<PlayerEditModel, PlayerDto>();
@@ -48,9 +46,16 @@ namespace Solution.Controllers
             return View(playerModel);
         }
 
+        [HttpPost]
         public ActionResult Delete(Guid id)
         {
-            throw new NotImplementedException();
+            var result = _playersService.ExcludePlayerFromClub(id);
+            if (result.Success)
+            {
+                var allPlayers = _playersService.GetAllPlayers();
+                return PartialView("_PlayersList", allPlayers.ToPlayerViewModelList());
+            }
+            return RedirectToAction("Index");
         }
 
         public ActionResult Create()
@@ -65,15 +70,14 @@ namespace Solution.Controllers
             if (ModelState.IsValid)
             {
                 var dto = Mapper.Map<PlayerEditModel, PlayerDto>(form);
-                _playersService.SavePlayer(dto);
-                //IEnumerable<ValidationResult> errors = commandBus.Validate(command);
-                //ModelState.AddModelErrors(errors);
-                //if (ModelState.IsValid)
-                //{
-                //    var result = commandBus.Submit(command);
-                //    if (result.Success)
-                //          return RedirectToAction("Index");
-                //}
+                var result = _playersService.SavePlayer(dto);
+                if (result.Success)
+                {
+                    return RedirectToAction("Index");
+                }
+
+                ModelState.AddModelErrors(result.ValidationFaults);
+                //maybe do here other come complex logic if necessary
             }
 
             //if fail
