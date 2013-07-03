@@ -16,35 +16,15 @@ namespace Application.Services
             _scrabblePlayerRepository = scrabblePlayerRepository;
             _validationBus = validationBus;
         }
-
-        private List<ScrabblePlayer> players = new List<ScrabblePlayer>
-            {
-                new ScrabblePlayer
-                    {
-                        ContactPhoneNumber = "123123",
-                        Email = "a@a.com",
-                        JoinDate = DateTime.UtcNow,
-                      //  Id = new Guid("7A26AF86-4011-4231-ADA6-38C10BA9AB52"),
-                        Name = "player1",
-                        StreetAddress = "sadasdas dasd ad"
-                    },
-                new ScrabblePlayer
-                    {
-                        ContactPhoneNumber = "89898",
-                        Email = "abbbbbb@a.com",
-                        JoinDate = DateTime.UtcNow.AddDays(-6),
-                      //  Id = new Guid("0A69938E-3D25-4495-9AFF-2C8AB600C810"),
-                        Name = "player2",
-                        StreetAddress = "this is secodn plyer adresse"
-                    }
-            };
+      
 
         private readonly IValidationBus _validationBus;
         private readonly IScrabblePlayerRepository _scrabblePlayerRepository;
 
         public IEnumerable<ScrabblePlayer> GetAllPlayers()
         {
-            return players;
+            var all = _scrabblePlayerRepository.GetAll();
+            return all;
         }
 
         public IOperationResult SavePlayer(PlayerDto playerDto)
@@ -64,7 +44,7 @@ namespace Application.Services
                 };
             currentPlayer.GenerateNewIdentity();
 
-          //  using (var scope = new TransactionScope())
+            using (var scope = new TransactionScope())
             {
                 if (playerDto.Id == Guid.Empty)
                 {
@@ -84,7 +64,7 @@ namespace Application.Services
                 }
 
                 _scrabblePlayerRepository.UnitOfWork.Commit();
-           //     scope.Complete();
+                scope.Complete();
             }
 
             return new OperationResult(true, null);
@@ -92,16 +72,17 @@ namespace Application.Services
 
         public ScrabblePlayer GetPlayer(Guid id)
         {
-            //TODO: retrive the player from storage
-            return players.Find(p => p.Id == id);
+           return _scrabblePlayerRepository.Get(id);
         }
 
         public IOperationResult ExcludePlayerFromClub(Guid id)
         {
-            var result = players.RemoveAll(p => p.Id == id);
-            if (result > 0)
+            var existing = _scrabblePlayerRepository.Get(id);
+            if (existing != null)
+            {
+                _scrabblePlayerRepository.Remove(existing);
                 return new OperationResult(true);
-
+            }
             return new OperationResult(false);
         }
     }

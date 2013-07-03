@@ -3,7 +3,7 @@ using DataAccess.Context;
 
 namespace DataAccess.Migrations
 {
-    internal sealed class Configuration : DbMigrationsConfiguration<ScrabbleClubContext>
+    public sealed class Configuration : DbMigrationsConfiguration<ScrabbleClubContext>
     {
         public Configuration()
         {

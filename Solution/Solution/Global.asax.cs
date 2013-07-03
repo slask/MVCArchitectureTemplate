@@ -1,8 +1,11 @@
-﻿using System.Web;
+﻿using System.Data.Entity;
+using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using DataAccess.Context;
+using DataAccess.Migrations;
 using Solution.Bootstrapping;
 
 namespace Solution
@@ -17,6 +20,8 @@ namespace Solution
             AreaRegistration.RegisterAllAreas();
 
             Bootstrapper.Run();
+
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ScrabbleClubContext, Configuration>());
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
