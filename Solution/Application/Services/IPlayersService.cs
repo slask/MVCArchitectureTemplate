@@ -9,7 +9,7 @@ namespace Application.Services
     {
         //TODO: maybe add method to get paged subset of players etc.
         IEnumerable<ScrabblePlayer> GetAllPlayers();
-        IOperationResult SavePlayer(PlayerDto dto);
+        IOperationResult SavePlayer(PlayerDto playerDto);
         ScrabblePlayer GetPlayer(Guid id);
         IOperationResult ExcludePlayerFromClub(Guid id);
     }

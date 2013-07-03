@@ -30,8 +30,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -39,7 +44,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Context\Mappings\ScrabblePlayerEntityTypeConfiguration.cs" />
+    <Compile Include="Context\Mappings\GameEntityTypeConfiguration.cs" />
+    <Compile Include="Context\ScrabbleClubContext.cs" />
+    <Compile Include="Core\IQueryableUnitOfWork.cs" />
+    <Compile Include="Core\ISql.cs" />
+    <Compile Include="Core\Repository.cs" />
+    <Compile Include="Migrations\201307031237571_InitialCreate.cs" />
+    <Compile Include="Migrations\201307031237571_InitialCreate.Designer.cs">
+      <DependentUpon>201307031237571_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScrabbleClubModule\Repositories\GameRepository.cs" />
+    <Compile Include="ScrabbleClubModule\Repositories\ScrabblePlayerRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{FAADBFC6-D51E-49F6-A849-FF9077D5035E}</Project>
+      <Name>Domain %28Domain\Domain%29</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201307031237571_InitialCreate.resx">
+      <DependentUpon>201307031237571_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

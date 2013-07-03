@@ -4,7 +4,7 @@ using Domain.Core;
 
 namespace Domain.Entities
 {
-    public class ScrabblePlayer: DomainObject
+    public class ScrabblePlayer: Entity
     {
         public string Name { get; set; }
         public DateTime? JoinDate { get; set; }

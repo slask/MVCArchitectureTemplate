@@ -39,22 +39,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\DomainObject.cs" />
+    <Compile Include="Core\Entity.cs" />
+    <Compile Include="Core\IdentityGenerator.cs" />
     <Compile Include="Core\IDependecyContainer.cs" />
+    <Compile Include="Core\IRepository.cs" />
+    <Compile Include="Core\IUnitOfWork.cs" />
+    <Compile Include="Core\Specification\AndSpecification.cs" />
+    <Compile Include="Core\Specification\CompositeSpecification.cs" />
+    <Compile Include="Core\Specification\DirectSpecification.cs" />
+    <Compile Include="Core\Specification\ExpressionBuilder.cs" />
+    <Compile Include="Core\Specification\ISpecification.cs" />
+    <Compile Include="Core\Specification\NotSpecification.cs" />
+    <Compile Include="Core\Specification\OrSpecification.cs" />
+    <Compile Include="Core\Specification\ParametersRebinder.cs" />
+    <Compile Include="Core\Specification\Specification.cs" />
+    <Compile Include="Core\Specification\TrueSpecification.cs" />
     <Compile Include="Core\Validation\DefaultValidationBus.cs" />
     <Compile Include="Core\Validation\IValidationBus.cs" />
     <Compile Include="Core\Validation\Notification.cs" />
     <Compile Include="Core\Validation\ValidationHandlerNotFoundException.cs" />
+    <Compile Include="Core\ValueObject.cs" />
     <Compile Include="Entities\Game.cs" />
     <Compile Include="Entities\ScrabblePlayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Core\Validation\IValidationHandler.cs" />
     <Compile Include="Core\Validation\Error.cs" />
+    <Compile Include="Repositories\IGameRepository.cs" />
+    <Compile Include="Repositories\IScrabblePlayerRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Repositories\" />
     <Folder Include="Services\" />
     <Folder Include="ValueObjects\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Core\Specification\SpecificationsDesignNotes.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

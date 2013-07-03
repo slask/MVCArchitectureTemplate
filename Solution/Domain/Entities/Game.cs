@@ -3,12 +3,11 @@ using Domain.Core;
 
 namespace Domain.Entities
 {
-    public class Game: DomainObject
+    public class Game : Entity
     {
-        public Guid Id { get; set; }
         public DateTime? PlayDate { get; set; }
         public string Location { get; set; }
-        
+
         public int Player1Score { get; set; }
         public virtual ScrabblePlayer Player1 { get; set; }
 
