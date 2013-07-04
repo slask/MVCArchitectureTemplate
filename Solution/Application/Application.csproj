@@ -43,10 +43,16 @@
     <Compile Include="DTO\PlayerDto.cs" />
     <Compile Include="IOperationResult.cs" />
     <Compile Include="OperationResult.cs" />
+    <Compile Include="Resources\Messages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.resx</DependentUpon>
+    </Compile>
     <Compile Include="Services\IPlayersService.cs" />
     <Compile Include="Services\PlayersService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Validators\CanSavePlayer.cs" />
+    <Compile Include="Validators\PlayerJoinDateMustNotBeInTheFuture.cs" />
+    <Compile Include="Validators\PlayerMustHaveUniqueEmailAddressValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -59,6 +65,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UseCaseManagers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Messages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

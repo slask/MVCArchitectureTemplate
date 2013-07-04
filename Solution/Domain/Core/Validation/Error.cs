@@ -8,12 +8,12 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="Error"/> class.
         /// </summary>
-        /// <param name="memeberName">Name of the memeber.</param>
+        /// <param name="memberName">Name of the memeber.</param>
         /// <param name="message">The message.</param>
-        public Error(string memeberName, string message)
+        public Error(string memberName, string message)
         {
             Message = message;
-            MemberName = memeberName;
+            MemberName = memberName;
         }
 
         /// <summary>
