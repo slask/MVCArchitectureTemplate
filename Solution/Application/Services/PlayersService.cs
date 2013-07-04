@@ -16,19 +16,20 @@ namespace Application.Services
             _scrabblePlayerRepository = scrabblePlayerRepository;
             _validationBus = validationBus;
         }
-      
 
         private readonly IValidationBus _validationBus;
         private readonly IScrabblePlayerRepository _scrabblePlayerRepository;
 
         public IEnumerable<ScrabblePlayer> GetAllPlayers()
         {
-            var all = _scrabblePlayerRepository.GetAll();
-            return all;
+            return _scrabblePlayerRepository.GetAll();
         }
 
         public IOperationResult SavePlayer(PlayerDto playerDto)
         {
+            //1. this method handles both add and update but as very well could have been 2 separate methods
+            //2. the transaction in this case is for demo purposes (as to where transactions go)
+
             var validationErrors = _validationBus.Validate(playerDto);
             var validationResults = validationErrors as IList<Notification> ?? validationErrors.ToList();
             if (validationErrors != null && validationResults.Any())
@@ -42,16 +43,17 @@ namespace Application.Services
                     Name = playerDto.Name,
                     StreetAddress = playerDto.StreetAddress
                 };
-            currentPlayer.GenerateNewIdentity();
 
             using (var scope = new TransactionScope())
             {
                 if (playerDto.Id == Guid.Empty)
                 {
+                    currentPlayer.GenerateNewIdentity();
                     _scrabblePlayerRepository.Add(currentPlayer);
                 }
                 else
                 {
+                    currentPlayer.ChangeCurrentIdentity(playerDto.Id);
                     var persistedPlayer =_scrabblePlayerRepository.Get(playerDto.Id);
                     if (persistedPlayer != null)
                     {

@@ -27,13 +27,12 @@ namespace Solution.Convertors
 
         public static IEnumerable<PlayerViewModel> ToPlayerViewModelList(this IEnumerable<ScrabblePlayer> items)
         {
-            
             if (items != null)
             {
                 var scrabblePlayers = items as IList<ScrabblePlayer> ?? items.ToList();
                 var viewModelList = new List<PlayerViewModel>(scrabblePlayers.Count());
                 viewModelList.AddRange(scrabblePlayers.Select(c => c.ToPlayerViewModel()));
-               
+
                 //if automapper will do fine then use it, expecially when having big entities with lots of properties
                 //viewModelList.AddRange(scrabblePlayers.Select(c => AutoMapper.Mapper.Map<PlayerViewModel>(c)));
 
@@ -41,7 +40,5 @@ namespace Solution.Convertors
             }
             return new List<PlayerViewModel>();
         }
-
-
     }
 }
