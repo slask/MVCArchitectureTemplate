@@ -11,7 +11,7 @@ namespace Application.Validators
     {
         public IEnumerable<Notification> Validate(PlayerDto dto)
         {
-            if (dto.JoinDate > DateTime.Now)
+            if (dto.JoinDate != null && dto.JoinDate.Value.ToLocalTime() > DateTime.Now)
             {
                 yield return new Error("JoinDate", "Join date must not be in the future");
             }

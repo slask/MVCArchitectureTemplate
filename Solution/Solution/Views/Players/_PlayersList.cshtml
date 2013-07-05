@@ -17,7 +17,7 @@
             <td>
                 @Html.ActionLink("Edit", "Edit",new { id = item.Id })
                 @Ajax.ActionLink("Delete", "Delete", new { id = item.Id },
-                                 new AjaxOptions { Confirm = "Delete Category?", HttpMethod = "Post", 
+                                 new AjaxOptions { Confirm = string.Format("Delete player {0}?", item.Name), HttpMethod = "Post", 
                                      UpdateTargetId = "divCategoryList" })              
             </td>
             <td>

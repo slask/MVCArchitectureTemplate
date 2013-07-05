@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web.Mvc;
+using Application;
 using Application.DTO;
 using Application.Services;
 using AutoMapper;
@@ -69,7 +70,17 @@ namespace Solution.Controllers
             if (ModelState.IsValid)
             {
                 var dto = Mapper.Map<PlayerEditModel, PlayerDto>(form);
-                var result = _playersService.SavePlayer(dto);
+                IOperationResult result = _playersService.SavePlayer(dto);
+                //other option here would be something like this
+                //if (form.Id == Guid.Empty)
+                //{
+                //    result = _playersService.AddPlayerToClub(dto);
+                //}
+                //else
+                //{
+                //    result = _playersService.EditClubMemberProfile(dto);
+                //}
+
                 if (result.Success)
                 {
                     return RedirectToAction("Index");

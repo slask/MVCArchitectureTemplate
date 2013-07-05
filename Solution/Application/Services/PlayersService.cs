@@ -22,6 +22,11 @@ namespace Application.Services
 
         public IEnumerable<ScrabblePlayer> GetAllPlayers()
         {
+            //1. This returns the actual entity itself without packaging it into a DTO
+            //   this avoids another conversion as in this particular case the UI is under our control
+            //   and the entitireveid will be further converted into a view model for presentation purposes
+            //2. In case the client is not under control then probably a output DTO will be required for full decoupling of domain entities 
+            //   and more easy versioning of the app layer for external clients
             return _scrabblePlayerRepository.GetAll();
         }
 
@@ -83,6 +88,7 @@ namespace Application.Services
             if (existing != null)
             {
                 _scrabblePlayerRepository.Remove(existing);
+                _scrabblePlayerRepository.UnitOfWork.Commit();
                 return new OperationResult(true);
             }
             return new OperationResult(false);
