@@ -23,7 +23,7 @@ namespace Solution
 
             Bootstrapper.Run();
 
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ScrabbleClubContext, Configuration>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ScrabbleClubContext, Configuration>("DefaultConnection"));
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

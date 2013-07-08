@@ -9,12 +9,12 @@ namespace Solution.Bootstrapping
 {
     public static class Bootstrapper
     {
-        public static void Run()
+        public static void Run(bool testMode = false)
         {
-            SetAutofacContainer();
+            SetAutofacContainer(!testMode ? "DefaultConnection" : "TestDB");
         }
 
-        private static void SetAutofacContainer()
+        private static void SetAutofacContainer(string dbConnectionString)
         {
             var builder = new ContainerBuilder();
 
@@ -22,7 +22,7 @@ namespace Solution.Bootstrapping
             builder.RegisterType<DefaultValidationBus>().As<IValidationBus>().InstancePerHttpRequest();
             builder.RegisterAssemblyTypes(Assembly.Load("Utilities")).AsImplementedInterfaces().InstancePerHttpRequest();
 
-            builder.RegisterType<ScrabbleClubContext>().InstancePerHttpRequest();
+            builder.RegisterType<ScrabbleClubContext>().WithParameter("connectionStringName", dbConnectionString).InstancePerHttpRequest();
 
             var infrastructureDataAccessLayerAssembly = Assembly.Load("DataAccess");
             builder.RegisterAssemblyTypes(infrastructureDataAccessLayerAssembly)
@@ -31,13 +31,13 @@ namespace Solution.Bootstrapping
 
             var domainLayerAssembly = Assembly.Load("Domain");
             builder.RegisterAssemblyTypes(domainLayerAssembly)
-                  .Where(t => t.Name.EndsWith("Service"))
-                  .AsImplementedInterfaces()
-                  .InstancePerHttpRequest();
+                   .Where(t => t.Name.EndsWith("Service"))
+                   .AsImplementedInterfaces()
+                   .InstancePerHttpRequest();
 
             var applicationLayerAssembly = Assembly.Load("Application");
             builder.RegisterAssemblyTypes(applicationLayerAssembly)
-                .AsClosedTypesOf(typeof (IValidationHandler<>)).InstancePerHttpRequest();
+                   .AsClosedTypesOf(typeof (IValidationHandler<>)).InstancePerHttpRequest();
             builder.RegisterAssemblyTypes(applicationLayerAssembly)
                    .Where(t => t.Name.EndsWith("Service"))
                    .AsImplementedInterfaces()
@@ -46,7 +46,6 @@ namespace Solution.Bootstrapping
             builder.RegisterFilterProvider();
             IContainer container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
-
         }
     }
 }

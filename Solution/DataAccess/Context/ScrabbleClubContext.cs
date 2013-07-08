@@ -11,6 +11,17 @@ namespace DataAccess.Context
 {
     public class ScrabbleClubContext : DbContext, IQueryableUnitOfWork
     {
+        public ScrabbleClubContext(string connectionStringName)
+            : base(connectionStringName)
+        {
+
+        }
+
+        public ScrabbleClubContext()
+        {
+            
+        }
+
         #region IDbSet Members
 
         private IDbSet<ScrabblePlayer> _scrabblePlayers;

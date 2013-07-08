@@ -45,7 +45,9 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
+          <Private>True</Private>
+        </Reference>
       </ItemGroup>
     </Otherwise>
   </Choose>
@@ -62,6 +64,7 @@
     <ProjectReference Include="..\Domain\Domain.csproj">
       <Project>{faadbfc6-d51e-49f6-a849-ff9077d5035e}</Project>
       <Name>Domain %28Domain\Domain%29</Name>
+      <Private>True</Private>
     </ProjectReference>
   </ItemGroup>
   <Choose>

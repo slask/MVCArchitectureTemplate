@@ -9,7 +9,7 @@ using Domain.Repositories;
 
 namespace Application.Services
 {
-    internal class PlayersService : IPlayersService
+    public class PlayersService : IPlayersService
     {
         public PlayersService(IValidationBus validationBus, IScrabblePlayerRepository scrabblePlayerRepository)
         {
