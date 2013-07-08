@@ -14,9 +14,5 @@ namespace Domain.Entities
         public int Player2Score { get; set; }
         public virtual ScrabblePlayer Player2 { get; set; }
 
-        //public bool IsWin
-        //{
-        //    get { return PlayerScore > OpponentScore; }
-        //}
     }
 }
