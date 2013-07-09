@@ -55,6 +55,7 @@
     <Compile Include="Validators\PlayerMustHaveUniqueEmailAddressValidator.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ApplicationLayer.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

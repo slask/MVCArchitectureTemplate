@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Domain.Core.Entity" Collapsed="true">
+    <Position X="15" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACCAAAAAAAAAAAgAAAAAAAAAAAAIAAQAAAAAAIBiA=</HashCode>
+      <FileName>Core\Entity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Domain.Core.IdentityGenerator" Collapsed="true">
+    <Position X="21" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core\IdentityGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Domain.Core.ValueObject&lt;TValueObject&gt;" BaseTypeListCollapsed="true">
+    <Position X="18.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAAIAAAAAAAAAAAiA=</HashCode>
+      <FileName>Core\ValueObject.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Domain.Core.Specification.AndSpecification&lt;T&gt;" Collapsed="true">
+    <Position X="0.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAIAAE=</HashCode>
+      <FileName>Core\Specification\AndSpecification.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Domain.Core.Specification.CompositeSpecification&lt;TEntity&gt;" Collapsed="true">
+    <Position X="2" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core\Specification\CompositeSpecification.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Domain.Core.Specification.DirectSpecification&lt;TEntity&gt;" Collapsed="true">
+    <Position X="5.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJAAA=</HashCode>
+      <FileName>Core\Specification\DirectSpecification.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Domain.Core.Specification.ExpressionBuilder" Collapsed="true">
+    <Position X="21" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Core\Specification\ExpressionBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Domain.Core.Specification.NotSpecification&lt;TEntity&gt;" Collapsed="true">
+    <Position X="8.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAIAAA=</HashCode>
+      <FileName>Core\Specification\NotSpecification.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Domain.Core.Specification.OrSpecification&lt;T&gt;" Collapsed="true">
+    <Position X="3" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAIAAE=</HashCode>
+      <FileName>Core\Specification\OrSpecification.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Domain.Core.Specification.ParameterRebinder" Collapsed="true">
+    <Position X="21" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Core\Specification\ParametersRebinder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Domain.Core.Specification.Specification&lt;TEntity&gt;" Collapsed="true">
+    <Position X="5.25" Y="1" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABACAAAAAAAAAJAAAABAAAAIAAA=</HashCode>
+      <FileName>Core\Specification\Specification.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Domain.Core.Specification.TrueSpecification&lt;TEntity&gt;" Collapsed="true">
+    <Position X="7" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Core\Specification\TrueSpecification.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Domain.Core.Validation.DefaultValidationBus" BaseTypeListCollapsed="true">
+    <Position X="12.5" Y="2" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core\Validation\DefaultValidationBus.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_container" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.209" />
+  </Class>
+  <Class Name="Domain.Core.Validation.Error">
+    <Position X="17.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core\Validation\Error.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Domain.Core.Validation.Notification">
+    <Position X="17.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Core\Validation\Notification.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Domain.Core.Validation.ValidationHandlerNotFoundException" Collapsed="true">
+    <Position X="12.5" Y="3.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core\Validation\ValidationHandlerNotFoundException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Domain.Entities.Game" Collapsed="true">
+    <Position X="13.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAwAIAAAAAAAAAAAAAAAAEAAAACAA=</HashCode>
+      <FileName>Entities\Game.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Domain.Entities.ScrabblePlayer" Collapsed="true">
+    <Position X="16.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAACAAAAAAAAAAAARAAAAAAAAAAAAAAAAAAFA=</HashCode>
+      <FileName>Entities\ScrabblePlayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Domain.Core.IDependecyContainer">
+    <Position X="15.25" Y="2" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Core\IDependecyContainer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Domain.Core.IRepository&lt;TEntity&gt;">
+    <Position X="6" Y="4.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAIAIAAAAACIAABgAAAABAAAAAAAgQAAAgAAAAAAAQA=</HashCode>
+      <FileName>Core\IRepository.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="UnitOfWork" />
+    </ShowAsAssociation>
+  </Interface>
+  <Interface Name="Domain.Core.IUnitOfWork">
+    <Position X="9.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Core\IUnitOfWork.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Domain.Core.Specification.ISpecification&lt;TEntity&gt;">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Core\Specification\ISpecification.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Domain.Core.Validation.IValidationBus">
+    <Position X="12.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core\Validation\IValidationBus.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Domain.Core.Validation.IValidationHandler&lt;T&gt;">
+    <Position X="14.75" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core\Validation\IValidationHandler.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Domain.Repositories.IGameRepository" Collapsed="true">
+    <Position X="4.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\IGameRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Domain.Repositories.IScrabblePlayerRepository" Collapsed="true">
+    <Position X="8" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\IScrabblePlayerRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
